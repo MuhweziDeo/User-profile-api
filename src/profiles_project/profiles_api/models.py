@@ -20,17 +20,17 @@ class UserProfileManager(BaseUserManager):
         return user 
     
     def create_superuser(self,email,name,password):
-        """ creates superuser /admin with given details""""
+        """ creates superuser /admin with given details"""
         user=self.create_user(email,name,password)
         user.is_superuser=True
         user.is_staff=True
         user.save(using=self._db)
-        return user
+        return user 
 
 
 class UserProfile(AbstractBaseUser,PermissionsMixin):
     """ Respresent User Profile in the system """
-    email=models.EmailField(max_length=255,unique)
+    email=models.EmailField(max_length=255,unique=True)
     name=models.CharField(max_length=255)
     is_active=models.BooleanField(default=True)
     is_staff=models=models.BooleanField(default=False)
@@ -38,14 +38,14 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
     USERNAME_FIELD='email'
     REQUIRED_FIELDS=['name']
 
-    """ helper functions""""
+    """ helper functions"""
     def get_full_names(self):
-        """ used to get a users full name""""
+        """ used to get a users full name"""
         return self.name
     def get_short_name(self):
-        """ Used to get a users short name.""""
+        """ Used to get a users short name."""
         return self.name
 
     def __str__(self):
-        """ converts an object to string""""
+        """ converts an object to string"""
         return self.email
