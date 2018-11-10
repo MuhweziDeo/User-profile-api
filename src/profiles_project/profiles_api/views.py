@@ -3,9 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
 class HeloApViews(APIView):
-    """ Test API View""""
+    """ Test API View"""
     def get(self,request,format=None):
-        """ Returns a list of APi view functions""""
+        """ Returns a list of APi view functions """
         api_view=[
             'uses HTPP methods as a function(get,post,put,patch,delete)',
             'its simillar to a traditional django view',
