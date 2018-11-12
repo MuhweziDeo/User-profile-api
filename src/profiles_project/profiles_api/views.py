@@ -26,3 +26,18 @@ class HeloApViews(APIView):
             message='Hello {0}'.format(name)
             return Response({'message':message})
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self,request,pk=None):
+    	"""  handles updating an object"""
+
+    	return Response({'method':"put"})
+
+    def patch(self,request,pk=None):
+    	"""  handles updating an fields provided in a request"""
+
+    	return Response({'method':"patch"})
+
+    def delete(self,request,pk=None):
+    	"""  handles updating an object"""
+
+    	return Response({'method':"delete"})
