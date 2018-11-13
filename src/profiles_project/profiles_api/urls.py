@@ -5,7 +5,9 @@ from . import views
 
 router=DefaultRouter()
 router.register('hello-viewset',views.HeloViewSet,base_name="hello-viewset")
+router.register('profile',views.UserProfileViewSet)
 urlpatterns = [
     path('',HeloApViews.as_view(),name='test-view'),
-    path('',include(router.urls))
+    path('',include(router.urls)),
+
 ]
