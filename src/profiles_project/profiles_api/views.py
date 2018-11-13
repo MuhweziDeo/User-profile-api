@@ -88,5 +88,6 @@ class HeloViewSet(viewsets.ViewSet):
 
 class UserProfileViewSet(viewsets.ModelViewSet):
     """ handles creating updating and deleting user profiles"""
-    serializer_class=UserProfileSerializer
     queryset=models.UserProfile.objects.all()
+    serializer_class=UserProfileSerializer
+
