@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,7 +7,7 @@ from .serializers import HelloSerializer
 # Create your views here.
 class HeloApViews(APIView):
     """ Test API View"""
-    serializer_class=HelloSerializer()
+    serializer_class=HelloSerializer
     def get(self,request,format=None):
         """ Returns a list of APi view functions """
         api_view=[
@@ -41,3 +42,17 @@ class HeloApViews(APIView):
     	"""  handles updating an object"""
 
     	return Response({'method':"delete"})
+
+class HeloViewSet(viewsets.ViewSet):
+    """ Test API viewsets"""
+    def list(self,request):
+        """ Return simple message"""
+
+        api_viewset=[
+        "uses actions(list,create,retrieve,update,partial_update)",
+        "automatically maps to URLS using Router",
+        "provides more functionality with less code"
+            
+        ]
+
+        return Response({'message':'Hello HeloViewSet','api_viewset':api_viewset})
