@@ -3,7 +3,8 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import HelloSerializer
+from .serializers import HelloSerializer,UserProfileSerializer
+from . import models
 # Create your views here.
 class HeloApViews(APIView):
     """ Test API View"""
@@ -84,3 +85,8 @@ class HeloViewSet(viewsets.ViewSet):
         """handles removin an object by its ID"""
         return Response({'http_method':'delete'})
 
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """ handles creating updating and deleting user profiles"""
+    serializer_class=UserProfileSerializer
+    queryset=models.UserProfile.objects.all()
