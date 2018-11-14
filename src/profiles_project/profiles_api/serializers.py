@@ -9,8 +9,7 @@ class HelloSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
     """ Seriailzer for user Profile object"""
-
-   """ 
+    """ 
    	if u dont inherit from ModelSerializer class then set this fields
 
    	id = serializers.IntegerField(read_only=True)
@@ -37,7 +36,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     """ 
     only define this methods in u dont in herit from ModelSerializer class
-    
+
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
         instance.save()

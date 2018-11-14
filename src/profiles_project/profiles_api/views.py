@@ -5,6 +5,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import HelloSerializer,UserProfileSerializer
 from . import models
+from . import permissions
+
+from rest_framework.authentication import TokenAuthentication
 # Create your views here.
 class HeloApViews(APIView):
     """ Test API View"""
@@ -90,4 +93,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     """ handles creating updating and deleting user profiles"""
     queryset=models.UserProfile.objects.all()
     serializer_class=UserProfileSerializer
+    authentication_classes=(TokenAuthentication,)
+    permission_classes=(permissions.UpdateOwnProfile,)
 
