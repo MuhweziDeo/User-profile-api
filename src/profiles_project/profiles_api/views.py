@@ -96,7 +96,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class=UserProfileSerializer
     authentication_classes=(TokenAuthentication,)
     permission_classes=(permissions.UpdateOwnProfile,)
-    filters_backends=(filters.SearchFilter,)
+    filter_backends=(filters.SearchFilter,)
     search_fields=('name','email',)
 
 
