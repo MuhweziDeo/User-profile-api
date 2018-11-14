@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 
 
-class HelloSerializer(serializers.ModelSerializer):
+class HelloSerializer(serializers.Serializer):
     """ serializers a name field for testing our apiview """
     name = serializers.CharField(max_length=10)
 
