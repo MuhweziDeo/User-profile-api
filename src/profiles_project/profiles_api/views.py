@@ -9,6 +9,8 @@ from . import permissions
 
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.authtoken.views import ObtainAuthToken
 # Create your views here.
 class HeloApViews(APIView):
     """ Test API View"""
@@ -100,3 +102,10 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     search_fields=('name','email',)
 
 
+class LoginViewSet(viewsets.ViewSet):
+    """ logins in user and returns auth token """
+    serializer_class =AuthTokenSerializer
+
+    def create(self,request):
+        """ use the obtainauthtoken apiview to validate and create a token"""
+        return ObtainAuthToken().post(request)
