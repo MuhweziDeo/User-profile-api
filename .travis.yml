@@ -1,0 +1,13 @@
+language: python
+python:
+    - "3.6"
+env:
+  - DJANGO_VERSION=2.1.3
+  - DJANGO_SETTINGS_MODULE=profiles_project.settings
+
+install:
+    - pip install -r requirements.txt
+
+script:
+    - cd profiles_project
+    - py.test --cov
