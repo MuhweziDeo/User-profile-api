@@ -11,3 +11,6 @@ install:
 script:
     - cd src/profiles_project
     - py.test --cov
+
+after_success:
+  - coveralls
