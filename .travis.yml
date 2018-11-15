@@ -9,5 +9,5 @@ install:
     - pip install -r requirements.txt
 
 script:
-    - cd profiles_project
+    - cd src/profiles_project
     - py.test --cov
