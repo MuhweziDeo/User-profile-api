@@ -35,6 +35,6 @@ class TestViews(TestCase):
         res=self.client.post('/api/profile/',
         data=json.dumps(self.user_payload),content_type='application/json')
 
-        self.assertEqual(res.status_code,status.HTTP_200_OK)
-        
+        self.assertEqual(res.status_code,status.HTTP_201_CREATED)
+
         
