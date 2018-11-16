@@ -17,6 +17,10 @@ class TestViews(TestCase):
             'name':'dee256',
             'password':'Adddddd'
         }
+        self.user={
+            'username':'gmail@gmail.com',
+            'password':'password'
+        }
     def test_get_user_profiles(self):
         res = self.client.get('/api/profile/')
         self.assertEqual(res.status_code, status.HTTP_200_OK)
@@ -37,4 +41,14 @@ class TestViews(TestCase):
 
         self.assertEqual(res.status_code,status.HTTP_201_CREATED)
 
+
+    def test_update_profile(self):
+        res=self.client.post('/api/login/',
+            data=json.dumps(self.user),
+            content_type='application/json'
+                            )
+        self.assertEqual(res.status_code,status.HTTP_200_OK)
+        self.assertIn('token',str(res.data))
+        response_data=res.data
+        self.token=response_data['token']
         
